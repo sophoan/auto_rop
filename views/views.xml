@@ -56,5 +56,6 @@
     <menuitem name="Server to list" id="auto_rop" parent="auto_rop.menu_2"
               action="auto_rop.action_server"/>
     -->
+
   </data>
 </odoo>

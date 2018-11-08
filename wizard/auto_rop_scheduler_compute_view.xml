@@ -1,0 +1,31 @@
+<odoo>
+    <data>
+
+        <record id="view_orderpoint_run_scheduler" model="ir.ui.view">
+            <field name="name">orderpoint.run_scheduler</field>
+            <field name="model">auto_rop.scheduler.compute</field>
+            <field name="arch" type="xml">
+                <form string="Parameters">
+                    <p>
+                        The calculation of reordering rules will be triggered, and this operation may take for a while to complete.
+                    </p>
+                    <footer>
+                        <button name="run_scheduler_manually" string="Run Scheduler" type="object" />
+                        <button string="Cancel" class="btn-secondary" special="cancel" />
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_orderpoint_run_scheduler" model="ir.actions.act_window">
+            <field name="name">Run Scheduler</field>
+            <field name="res_model">auto_rop.scheduler.compute</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+        <menuitem id="auto_rop_run_schuduler" name="Run Scheduler" parent="auto_rop_menu" action="action_orderpoint_run_scheduler" />
+
+    </data>
+</odoo>

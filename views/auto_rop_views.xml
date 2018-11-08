@@ -1,0 +1,59 @@
+<odoo>
+    <data>
+
+
+        <record model="ir.actions.act_window" id="rop_list_action">
+            <field name="name">ROP</field>
+            <field name="res_model">auto_rop.rop</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form,calendar,graph</field>
+        </record>
+
+        <!--Tree view for ROP-->
+        <record model="ir.ui.view" id="rop_tree_view">
+            <field name="name">rop.tree</field>
+            <field name="model">auto_rop.rop</field>
+            <field name="arch" type="xml">
+                <tree string="ROP" default_order="calculated_date desc,product_id">
+                    <field name="calculated_date" />
+                    <field name="product_id" />
+                    <field name="product_safety_qty" />
+                    <field name="lead_time_in_days" />
+                    <field name="forecasted_sale" />
+                    <field name="min_qty" />
+                    <field name="max_qty" />
+                </tree>
+            </field>
+        </record>
+
+        <!--Line Graph for ROP-->
+        <record id="rop_line_graph_view" model="ir.ui.view">
+            <field name="name">rop.linegraph</field>
+            <field name="model">auto_rop.rop</field>
+            <field name="arch" type="xml">
+                <graph string="ROP History" type="line">
+                    <field name="calculated_date" type="col" />
+                    <field name="min_qty" type="measure" />
+                </graph>
+            </field>
+        </record>
+
+        <!--Calendar view for ROP -->
+        <record id="rop_calendar_view" model="ir.ui.view">
+            <field name="name">rop.calendar</field>
+            <field name="model">auto_rop.rop</field>
+            <field name="arch" type="xml">
+                <calendar string="ROP History" date_start="calculated_date" mode="month">
+                    <field name="product_id" />
+                    <field name="min_qty" />
+                    <field name="max_qty" />
+                </calendar>
+            </field>
+        </record>
+
+        <menuitem id="main_auto_rop_menu" name="Auto ROP" />
+        <menuitem id="auto_rop_menu" name="Auto ROP" parent="main_auto_rop_menu" />
+        <menuitem id="rop_menu" name="ROP History" parent="auto_rop_menu" action="rop_list_action" />
+
+    </data>
+</odoo>

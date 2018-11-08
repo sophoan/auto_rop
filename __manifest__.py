@@ -3,14 +3,13 @@
     'name': "Auto ROP",
 
     'summary': """
-        Short (1 phrase/line) summary of the module's purpose, used as
-        subtitle on modules listing or apps.openerp.com""",
+        Dynamically calculate ROP""",
 
     'description': """
-        Long description of module's purpose
+        This module adds a feature to do the auto calculation of Min Qty. of the products based on completed purchases and sales.
     """,
 
-    'author': "My Company",
+    'author': "Sophooan Sok",
     'website': "http://www.yourcompany.com",
 
     # Categories can be used to filter modules in modules listing
@@ -27,9 +26,21 @@
         # 'security/ir.model.access.csv',
         'views/views.xml',
         'views/templates.xml',
+        'views/auto_rop_views.xml',
+        'views/order_point_views.xml',
+        'data/rop_data.xml',
+        'wizard/auto_rop_scheduler_compute_view.xml'
     ],
     # only loaded in demonstration mode
     'demo': [
         'demo/demo.xml',
     ],
+    'depends': [
+        'product',
+        'stock',
+        'sale',
+        'purchase',
+    ],
+    'application': True,
+    'installable': True,
 }

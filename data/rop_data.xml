@@ -1,0 +1,17 @@
+<odoo>
+    <data>
+        <record id="ir_cron_calculate_rop_action" model="ir.cron">
+            <field name="name">Auto ROP: Calculate ROP</field>
+            <field name="user_id" ref="base.user_root" />
+            <field name="interval_number">1</field>
+            <field name="interval_type">weeks</field>
+            <field name="numbercall">-1</field>
+            <field name="state">code</field>
+            <field name="model_id" ref="model_stock_warehouse_orderpoint" />
+            <field name="code">
+                model.run_scheduler()
+            </field>
+            <field eval="False" name="doall" />
+        </record>
+    </data>
+</odoo>

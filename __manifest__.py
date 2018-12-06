@@ -29,7 +29,9 @@
         'views/auto_rop_views.xml',
         'views/order_point_views.xml',
         'data/rop_data.xml',
-        'wizard/auto_rop_scheduler_compute_view.xml'
+        'wizard/auto_rop_scheduler_compute_view.xml',
+        'views/product_views.xml',
+        # 'views/res_config_settings_views.xml',
     ],
     # only loaded in demonstration mode
     'demo': [

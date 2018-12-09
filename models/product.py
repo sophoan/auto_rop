@@ -85,8 +85,6 @@ class ROPForecaster():
         sale = self._sale_forecaster.get_for_next_ndays(product, lead_time)
         print("Sale: {0}".format(sale))
 
-        if sale <= 0:
-            return None
 
         for orderpoint in product.orderpoint_ids:
             last_min_qty = orderpoint.product_min_qty
@@ -131,7 +129,7 @@ class MovingAverageLeadTimeForecaster():
                 n += 1
         if n == 0:
             return 0
-        return lead_time_days / n
+        return  round(lead_time_days / n)
 
 
 class MovingAverageSaleForecaster(SaleForecaster):

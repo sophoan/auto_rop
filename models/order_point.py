@@ -7,7 +7,14 @@ import logging
 import threading
 
 class OrderPoint(models.Model):
-    _inherit = "stock.warehouse.orderpoint"
+    _name = "stock.warehouse.orderpoint"
+    _inherit = ["stock.warehouse.orderpoint", "mail.thread"]
+
+    lead_days = fields.Integer(
+        'lead_time', default=1,
+        help="Number of days after the orderpoint is triggered to receive the products or to order to the vendor",
+        track_visibility='onchange'
+    )
 
     product_safety_qty = fields.Float(
         "Safety Quantity", digits=dp.get_precision("Product Unit of Measure"), default=0, required=True,

@@ -9,6 +9,17 @@
             <field name="view_mode">tree,form,calendar,graph</field>
         </record>
 
+        <!--Search view for ROP-->
+        <record id="rop_search_view" model="ir.ui.view">
+            <field name="name">rop.search</field>
+            <field name="model">auto_rop.rop</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="product_id" />
+                </search>
+            </field>
+        </record>
+
         <!--Tree view for ROP-->
         <record model="ir.ui.view" id="rop_tree_view">
             <field name="name">rop.tree</field>

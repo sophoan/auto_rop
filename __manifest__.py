@@ -3,19 +3,19 @@
     'name': "Auto ROP",
 
     'summary': """
-        Dynamically calculate ROP""",
+        auto calculate ROP""",
 
     'description': """
-        This module adds a feature to do the auto calculation of Min Qty. of the products based on completed purchases and sales.
+        This module adds feature to calculate reorder point of the products automatically based on completed purchases and sales.
     """,
 
-    'author': "Sophooan Sok",
-    'website': "http://www.yourcompany.com",
+    'author': "Sophooan",
+    'website': "https://www.github.com/sophoan/auto_rop",
 
     # Categories can be used to filter modules in modules listing
     # Check https://github.com/odoo/odoo/blob/master/odoo/addons/base/module/module_data.xml
     # for the full list
-    'category': 'Uncategorized',
+    'category': 'Purchases',
     'version': '0.1',
 
     # any module necessary for this one to work correctly

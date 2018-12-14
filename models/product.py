@@ -38,13 +38,13 @@ class ROPProcessor():
     def calculate_rop(self, product, use_new_cursor=False):
 
         rop_forecaster = ROPForecaster()
-
+        results = []
         for orderpoint in product.orderpoint_ids:
             rop_data = rop_forecaster.get_forecasted_rop(product)
             if rop_data == None:
                 return
 
-            self.save_rop_result(product.env['auto_rop.rop'],rop_data)
+            results.append(self.save_rop_result(product.env['auto_rop.rop'],rop_data))
             if use_new_cursor:
                 product._cr.commit()
 
@@ -55,12 +55,13 @@ class ROPProcessor():
             })
             if use_new_cursor:
                 product._cr.commit()
-
+        return results
 
 
     def save_rop_result(self, rop, rop_data):
         # print("Save ROP: {0}".format(rop_data))
         r = rop.create(rop_data)
+        return r
         # print(r.product_id.name)
 
     def update_reorder_rule(self, orderpoint, updated_data):
@@ -118,7 +119,6 @@ class LeadTimeForecaster():
 
 class MovingAverageLeadTimeForecaster():
     def get(self, product):
-        #product.order_line_ids.filtered(lambda o: o.order_id.state == 'purchase').ids
         orders = product.env['purchase.order'].search([('order_line.product_id', '=', product.id),
                                                        ('state', '=', 'purchase')], limit=10, order='date_order desc')
         lead_time_days = 0

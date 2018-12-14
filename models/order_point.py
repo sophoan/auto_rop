@@ -23,7 +23,7 @@ class OrderPoint(models.Model):
 
     @api.model
     def run_scheduler(self, use_new_cursor=False):
-        print("Run Scheduler")
+        # print("Run Scheduler")
         try:
             if use_new_cursor:
                 cr = registry(self._cr.dbname).cursor()

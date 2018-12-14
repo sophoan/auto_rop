@@ -9,7 +9,7 @@
         This module adds feature to calculate reorder point of the products automatically based on completed purchases and sales.
     """,
 
-    'author': "Sophooan",
+    'author': "Sophoan",
     'website': "https://www.github.com/sophoan/auto_rop",
 
     # Categories can be used to filter modules in modules listing

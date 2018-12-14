@@ -11,7 +11,7 @@ class OrderPoint(models.Model):
     _inherit = ["stock.warehouse.orderpoint", "mail.thread"]
 
     lead_days = fields.Integer(
-        'lead_time', default=1,
+        'Lead Time', default=1,
         help="Number of days after the orderpoint is triggered to receive the products or to order to the vendor",
         track_visibility='onchange'
     )

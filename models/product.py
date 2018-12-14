@@ -59,12 +59,12 @@ class ROPProcessor():
 
 
     def save_rop_result(self, rop, rop_data):
-        print("Save ROP: {0}".format(rop_data))
+        # print("Save ROP: {0}".format(rop_data))
         r = rop.create(rop_data)
-        print(r.product_id.name)
+        # print(r.product_id.name)
 
     def update_reorder_rule(self, orderpoint, updated_data):
-        print("Update Rule: {0}".format(updated_data))
+        # print("Update Rule: {0}".format(updated_data))
         orderpoint.write(updated_data)
 
 
@@ -76,14 +76,14 @@ class ROPForecaster():
         self._sale_forecaster = MovingAverageSaleForecaster()
 
     def get_forecasted_rop(self, product):
-        print("Product: {0}".format(product.name))
+        # print("Product: {0}".format(product.name))
 
         lead_time = self._lead_time_forecaster.get(product)
 
-        print("Lead time: {0}".format(lead_time))
+        # print("Lead time: {0}".format(lead_time))
 
         sale = self._sale_forecaster.get_for_next_ndays(product, lead_time)
-        print("Sale: {0}".format(sale))
+        # print("Sale: {0}".format(sale))
 
 
         for orderpoint in product.orderpoint_ids:
